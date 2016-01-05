@@ -12,9 +12,15 @@ RUN apt-get update && \
 # Users creation
 RUN useradd --system --comment " " --create-home redash
 
+# rediect pip to china mirror
+RUN mkdir ~/.pip
+RUN rm -f ~/.pip/pip.conf 
+RUN echo "[global]">> ~/.pip/pip.conf 
+RUN echo "index-url = http://pypi.douban.com/simple" >> ~/.pip/pip.conf  
+
 # Pip requirements for all data source types
-RUN pip install -U setuptools && \
-  pip install supervisor==3.1.2
+RUN pip install  -i http://pypi.douban.com/simple/ -U setuptools && \
+  pip install  -i http://pypi.douban.com/simple/ supervisor==3.1.2
 
 COPY . /opt/redash/current
 
