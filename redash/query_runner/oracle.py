@@ -88,7 +88,7 @@ class Oracle(BaseSQLQueryRunner):
 
         self.connection_string = "{}/{}@{}".format(self.configuration["user"], self.configuration["password"], dsn)
 
-    def _get_tables(self, schema_dict):
+    def _get_tables(self, schema):
         query = """
         SELECT
             user_tables.TABLESPACE_NAME,
