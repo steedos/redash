@@ -3,12 +3,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" ng-disabled="saveInProgress" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Add Widget</h4>
+                <h4 class="modal-title">添加部件</h4>
             </div>
             <div class="modal-body">
                 <p class="btn-group">
-                    <button type="button" class="btn btn-default" ng-class="{active: isVisualization()}" ng-click="setType('visualization')">Visualization</button>
-                    <button type="button" class="btn btn-default" ng-class="{active: isTextBox()}" ng-click="setType('textbox')">Text Box</button>
+                    <button type="button" class="btn btn-default" ng-class="{active: isVisualization()}" ng-click="setType('visualization')">可视化图表</button>
+                    <button type="button" class="btn btn-default" ng-class="{active: isTextBox()}" ng-click="setType('textbox')">文本</button>
                 </p>
 
                 <div ng-show="isTextBox()">
@@ -16,7 +16,7 @@
                         <textarea class="form-control" ng-model="text" rows="3"></textarea>
                     </div>
                     <div ng-show="text">
-                        <strong>Preview:</strong>
+                        <strong>预览:</strong>
                         <p ng-bind-html="text | markdown"></p>
                     </div>
                 </div>
@@ -35,22 +35,22 @@
 
                     <div ng-show="selected_query">
                         <div class="form-group">
-                            <label for="">Choose Visualization</label>
+                            <label for="">选择可视化图表</label>
                             <select ng-model="selectedVis" ng-options="vis as vis.name group by vis.type for vis in selected_query.visualizations" class="form-control"></select>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="">Widget Size</label>
+                    <label for="">部件大小</label>
                     <select class="form-control" ng-model="widgetSize"
                             ng-options="c.value as c.name for c in widgetSizes"></select>
                 </div>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" ng-disabled="saveInProgress" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-disabled="saveInProgress || !(selectedVis || isTextBox())" ng-click="saveWidget()">Add to Dashboard</button>
+                <button type="button" class="btn btn-default" ng-disabled="saveInProgress" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-disabled="saveInProgress || !(selectedVis || isTextBox())" ng-click="saveWidget()">添加到面板中</button>
             </div>
         </div>
         <!-- /.modal-content -->

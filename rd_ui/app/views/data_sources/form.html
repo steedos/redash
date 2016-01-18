@@ -1,10 +1,10 @@
 <form name="dataSourceForm" ng-submit="saveChanges()">
     <div class="form-group">
-        <label for="dataSourceName">Name</label>
+        <label for="dataSourceName">姓名</label>
         <input type="string" class="form-control" name="dataSourceName" ng-model="dataSource.name" required>
     </div>
     <div class="form-group">
-        <label for="type">Type</label>
+        <label for="type">类型</label>
         <select name="type" class="form-control" ng-options="type.type as type.name for type in dataSourceTypes" ng-model="dataSource.type"></select>
     </div>
     <div class="form-group" ng-class='{"has-error": !inner.input.$valid}' ng-form="inner" ng-repeat="(name, input) in type.configuration_schema.properties">
@@ -16,5 +16,5 @@
                base-sixty-four-input
                ng-if="input.type === 'file'">
     </div>
-    <button class="btn btn-primary" ng-disabled="!dataSourceForm.$valid">Save</button>
+    <button class="btn btn-primary" ng-disabled="!dataSourceForm.$valid">保存</button>
 </form>
