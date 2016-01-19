@@ -20,7 +20,7 @@
                                            ignore-blanks='false'
                                            value="query.description"
                                            markdown="true">
-                             </edit-in-place>
+                            </edit-in-place>
                         </em>
                     </p>
                 </div>
@@ -45,7 +45,7 @@
                     &nbsp;
                     <span class="text-muted">运行时间</span>
                     <strong ng-show="!queryExecuting">{{queryResult.getRuntime() | durationHumanize}}</strong>
-                    <span ng-show="queryExecuting">Running&hellip;</span>
+                    <span ng-show="queryExecuting">运行&hellip;</span>
                     &nbsp;
                     <span class="text-muted">行数</span>
                     <strong>{{queryResult.getData().length}}</strong>
@@ -171,8 +171,8 @@
                         All dashboard widgets created with its visualizations will be deleted.
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary" ng-click="archiveQuery()">Yes, archive.</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">否</button>
+                        <button type="button" class="btn btn-primary" ng-click="archiveQuery()">是，归档</button>
                       </div>
                     </div>
                   </div>
@@ -184,11 +184,11 @@
             <!-- alerts -->
             <div class="alert alert-info" ng-show="queryResult.getStatus() == 'processing'">
                 Executing query&hellip; <rd-timer timestamp="queryResult.getUpdatedAt()"></rd-timer>
-                <button type="button" class="btn btn-warning btn-xs pull-right" ng-disabled="cancelling" ng-click="cancelExecution()">Cancel</button>
+                <button type="button" class="btn btn-warning btn-xs pull-right" ng-disabled="cancelling" ng-click="cancelExecution()">取消</button>
             </div>
             <div class="alert alert-info" ng-show="queryResult.getStatus() == 'waiting'">
                 Query in queue&hellip; <rd-timer timestamp="queryResult.getUpdatedAt()"></rd-timer>
-                <button type="button" class="btn btn-warning btn-xs pull-right" ng-disabled="cancelling" ng-click="cancelExecution()">Cancel</button>
+                <button type="button" class="btn btn-warning btn-xs pull-right" ng-disabled="cancelling" ng-click="cancelExecution()">取消</button>
             </div>
             <div class="alert alert-danger" ng-show="queryResult.getError()">Error running query: <strong>{{queryResult.getError()}}</strong></div>
 
