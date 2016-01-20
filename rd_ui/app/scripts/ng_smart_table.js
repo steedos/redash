@@ -674,7 +674,7 @@ angular.module("partials/editableCell.html", []).run(["$templateCache", function
 
 angular.module("partials/globalSearchCell.html", []).run(["$templateCache", function ($templateCache) {
   $templateCache.put("partials/globalSearchCell.html",
-    "<label>Search :</label>\n" +
+    "<label>搜索:</label>\n" +
     "<input type=\"text\" ng-model=\"searchValue\"/>");
 }]);
 

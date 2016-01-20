@@ -125,10 +125,10 @@
         replace: true,
         link: function($scope, element, attrs) {
           $scope.widgetSizes = [{
-            name: 'Regular',
+            name: '普通',
             value: 1
           }, {
-            name: 'Double',
+            name: '两倍',
             value: 2
           }];
 

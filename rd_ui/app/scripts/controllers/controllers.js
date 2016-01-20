@@ -136,9 +136,9 @@
     ]
 
     $scope.tabs = [
-      {"name": "My Queries", "key": "my"},
-      {"key": "all", "name": "All Queries"},
-      {"key": "drafts", "name": "Drafts"}
+      {"name": "我的查询", "key": "my"},
+      {"key": "all", "name": "所有查询"},
+      {"key": "drafts", "name": "草稿箱"}
     ];
 
     $scope.$watch('selectedTab', function (tab) {

@@ -29,10 +29,10 @@
       restrict: 'E',
       template: '<span ng-show="query.id && canViewSource">\
                     <a ng-show="!sourceMode"\
-                      ng-href="/queries/{{query.id}}/source#{{selectedTab}}">显示选项\
+                      ng-href="/queries/{{query.id}}/source#{{selectedTab}}">显示源\
                     </a>\
                     <a ng-show="sourceMode"\
-                      ng-href="/queries/{{query.id}}#{{selectedTab}}">隐藏选项\
+                      ng-href="/queries/{{query.id}}#{{selectedTab}}">隐藏源\
                     </a>\
                 </span>'
     }
@@ -165,7 +165,7 @@
       template: '<button type="button" class="btn btn-default btn-xs"\
                    ng-click="formatQuery()">\
                     <span class="glyphicon glyphicon-indent-left"></span>\
-                     Format SQL\
+                     格式化 SQL\
                 </button>',
       link: function($scope) {
         $scope.formatQuery = function formatQuery() {

@@ -7,14 +7,14 @@
         {{dashboard.name}}
 
         <span ng-if="!dashboard.is_archived">
-            <button type="button" class="btn btn-default btn-xs" ng-class="{active: refreshEnabled}" tooltip="Enable/Disable Auto Refresh" ng-click="triggerRefresh()"><span class="glyphicon glyphicon-refresh"></span></button>
+            <button type="button" class="btn btn-default btn-xs" ng-class="{active: refreshEnabled}" tooltip="允许/禁止 自动刷新" ng-click="triggerRefresh()"><span class="glyphicon glyphicon-refresh"></span></button>
             <div class="btn-group" role="group" ng-show="dashboard.canEdit()">
-                <button type="button" class="btn btn-default btn-xs" data-toggle="modal" href="#edit_dashboard_dialog" tooltip="Edit Dashboard (Name/Layout)"><span
+                <button type="button" class="btn btn-default btn-xs" data-toggle="modal" href="#edit_dashboard_dialog" tooltip="编辑指示板 (名称/布局)"><span
                         class="glyphicon glyphicon-cog"></span></button>
                 <button type="button" class="btn btn-default btn-xs" data-toggle="modal"
-                        href="#add_query_dialog" tooltip="Add Widget (Chart/Table)"><span class="glyphicon glyphicon-plus"></span>
+                        href="#add_query_dialog" tooltip="添加部件 (图表/表格)"><span class="glyphicon glyphicon-plus"></span>
                 </button>
-                <butotn class="btn btn-danger btn-xs" ng-click="archiveDashboard()" ng-if="!dashboard.is_archived" tooltip="Archive"><i class="fa fa-archive"></i></butotn>
+                <butotn class="btn btn-danger btn-xs" ng-click="archiveDashboard()" ng-if="!dashboard.is_archived" tooltip="归档"><i class="fa fa-archive"></i></butotn>
             </div>
         </span>
     </h2>
@@ -43,7 +43,7 @@
                 <div class="panel-footer">
                     <span class="label label-default"
                           tooltip="(query runtime: {{queryResult.getRuntime() | durationHumanize}})"
-                          tooltip-placement="bottom">Updated: <span am-time-ago="queryResult.getUpdatedAt()"></span></span>
+                          tooltip-placement="bottom">最近更新: <span am-time-ago="queryResult.getUpdatedAt()"></span></span>
 
                     <span class="pull-right">
                         <a class="btn btn-default btn-xs" ng-href="/queries/{{query.id}}#{{widget.visualization.id}}" ng-show="currentUser.hasPermission('view_query')"><span class="glyphicon glyphicon-link"></span></a>

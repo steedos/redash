@@ -2,7 +2,7 @@
     <div class="row">
         <p>
             <a href="/queries/new" class="btn btn-default">新增查询</a>
-            <button ng-show="currentUser.hasPermission('create_dashboard')" type="button" class="btn btn-default" data-toggle="modal" href="#new_dashboard_dialog">新增面板</button>
+            <button ng-show="currentUser.hasPermission('create_dashboard')" type="button" class="btn btn-default" data-toggle="modal" href="#new_dashboard_dialog">新增指示板</button>
             <a href="/alerts/new" class="btn btn-default">新增通告</a>
         </p>
     </div>
@@ -10,7 +10,7 @@
     <div class="row">
         <div class="list-group col-md-6">
             <div class="list-group-item active">
-                最近编辑的面板
+                最近编辑的指示板
             </div>
             <a ng-href="/dashboard/{{dashboard.slug}}" class="list-group-item" ng-repeat="dashboard in recentDashboards">
                 {{dashboard.name}}

@@ -24,7 +24,7 @@
                 <div ng-show="isVisualization()">
                     <div class="form-group">
                         <ui-select ng-model="query.selected" theme="bootstrap" reset-search-input="false">
-                            <ui-select-match placeholder="Search a query by name">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-match placeholder="通过名称搜索查询">{{$select.selected.name}}</ui-select-match>
                             <ui-select-choices repeat="q in queries"
                                                refresh="searchQueries($select.search)"
                                                refresh-delay="0">
@@ -50,7 +50,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" ng-disabled="saveInProgress" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" ng-disabled="saveInProgress || !(selectedVis || isTextBox())" ng-click="saveWidget()">添加到面板中</button>
+                <button type="button" class="btn btn-primary" ng-disabled="saveInProgress || !(selectedVis || isTextBox())" ng-click="saveWidget()">添加到指示板中</button>
             </div>
         </div>
         <!-- /.modal-content -->

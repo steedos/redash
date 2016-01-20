@@ -16,7 +16,7 @@
                             <edit-in-place editable="isQueryOwner"
                                            done="saveDescription"
                                            editor="textarea"
-                                           placeholder="No description"
+                                           placeholder="暂无描述"
                                            ignore-blanks='false'
                                            value="query.description"
                                            markdown="true">
@@ -34,7 +34,7 @@
 
             <div class="visible-xs">
                 <p>
-                    <span class="text-muted">上次更新</span>
+                    <span class="text-muted">最近更新</span>
                     <strong>
                         <rd-time-ago value="queryResult.query_result.retrieved_at"></rd-time-ago>
                     </strong>
@@ -73,7 +73,7 @@
                         </button>
 
                         <button class="btn btn-success btn-xs" ng-show="canEdit" ng-click="saveQuery()">
-                            <span class="glyphicon glyphicon-floppy-disk"> </span> 保存<span ng-show="isDirty">&#42;</span>
+                            <span class="glyphicon glyphicon-floppy-disk"> </span>保存<span ng-show="isDirty">&#42;</span>
                         </button>
                     </span>
                 </p>
@@ -85,7 +85,7 @@
         </div>
         <div class="col-md-3 schema-container" ng-show="hasSchema">
             <div ng-show="schema.length < 200">
-                <input type="text" placeholder="Search schema..." class="form-control" ng-model="schemaFilter">
+                <input type="text" placeholder="搜索..." class="form-control" ng-model="schemaFilter">
             </div>
             <div class="schema-browser">
                 <div ng-repeat="table in schema | filter:schemaFilter track by table.name">
@@ -167,8 +167,8 @@
                         <h4 class="modal-title">查询归档</h4>
                       </div>
                       <div class="modal-body">
-                        Are you sure you want to archive this query? <br/>
-                        All dashboard widgets created with its visualizations will be deleted.
+                        确定要将此查询归档吗? <br/>
+                        指示板中所有依赖此查询所添加的可视化图表都将被删除。
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">否</button>
@@ -207,13 +207,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="nav nav-tabs">
-                            <rd-tab tab-id="table" name="Table"></rd-tab>
-                            <rd-tab tab-id="pivot" name="Pivot Table"></rd-tab>
+                            <rd-tab tab-id="table" name="表格"></rd-tab>
+                            <rd-tab tab-id="pivot" name="数据透视表"></rd-tab>
                             <rd-tab tab-id="{{vis.id}}" name="{{vis.name}}" ng-if="vis.type!='TABLE'" ng-repeat="vis in query.visualizations">
                                 <span class="remove" ng-click="deleteVisualization($event, vis)" ng-show="canEdit"> &times;</span>
                             </rd-tab>
                             <rd-tab tab-id="add" name="&plus; New Visualization" removeable="true" ng-show="canEdit"></rd-tab>
-                            <li ng-if="!sourceMode && canExecuteQuery" class="rd-tab-btn"><button class="btn btn-sm btn-default" ng-click="executeQuery()" ng-disabled="queryExecuting" title="Refresh Dataset"><span class="glyphicon glyphicon-refresh"></span></button></li>
+                            <li ng-if="!sourceMode && canExecuteQuery" class="rd-tab-btn"><button class="btn btn-sm btn-default" ng-click="executeQuery()" ng-disabled="queryExecuting" title="刷新数据集"><span class="glyphicon glyphicon-refresh"></span></button></li>
                         </ul>
                     </div>
                 </div>

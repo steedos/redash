@@ -68,7 +68,7 @@
 
     $scope.duplicateQuery = function() {
       Events.record(currentUser, 'fork', 'query', $scope.query.id);
-      $scope.query.name = 'Copy of (#'+$scope.query.id+') '+$scope.query.name;
+      $scope.query.name = '拷贝于 (#'+$scope.query.id+') '+$scope.query.name;
       $scope.query.id = null;
       $scope.query.schedule = null;
       $scope.saveQuery({
