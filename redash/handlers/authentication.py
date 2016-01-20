@@ -24,9 +24,9 @@ def login():
                 login_user(user, remember=remember)
                 return redirect(request.args.get('next') or '/')
             else:
-                flash("邮件或密码输入有误！")
+                flash("Wrong email or password.")
         except models.User.DoesNotExist:
-            flash("邮件或密码输入有误！")
+            flash("Wrong email or password.")
 
     return render_template("login.html",
                            name=settings.NAME,

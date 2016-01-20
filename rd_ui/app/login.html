@@ -40,6 +40,12 @@
         {% with messages = get_flashed_messages() %}
           {% if messages %}
             {% for message in messages %}
+                {% if message == "Please log in to access this page." %}
+                    {% message = "请填写登录信息！" %}
+                {% endif %}
+                {% if message == "Wrong email or password."%}
+                    {% message = "邮件或密码填写错误！" %}
+                {% endif %}
                 <div class="alert alert-warning" role="alert">{{ message }}</div>
             {% endfor %}
           {% endif %}
