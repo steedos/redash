@@ -29,10 +29,10 @@
       restrict: 'E',
       template: '<span ng-show="query.id && canViewSource">\
                     <a ng-show="!sourceMode"\
-                      ng-href="/queries/{{query.id}}/source#{{selectedTab}}">Show Source\
+                      ng-href="/queries/{{query.id}}/source#{{selectedTab}}">显示选项\
                     </a>\
                     <a ng-show="sourceMode"\
-                      ng-href="/queries/{{query.id}}#{{selectedTab}}">Hide Source\
+                      ng-href="/queries/{{query.id}}#{{selectedTab}}">隐藏选项\
                     </a>\
                 </span>'
     }

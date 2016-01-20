@@ -6,7 +6,7 @@
     </ol>
 
     <tabset>
-        <tab heading="Profile" active="tabs['profile']" select="setTab('profile')">
+        <tab heading="个人信息" active="tabs['profile']" select="setTab('profile')">
             <p>
                 <img src="{{user.gravatar_url}}"/>
             </p>
@@ -23,7 +23,7 @@
             API Key:
             <input type="text" value="{{user.api_key}}" size="44" readonly/>
         </tab>
-        <tab heading="Settings" ng-if="showSettings || currentUser.hasPermission('admin')" active="tabs['settings']" select="setTab('settings')">
+        <tab heading="设置" ng-if="showSettings || currentUser.hasPermission('admin')" active="tabs['settings']" select="setTab('settings')">
             <div class="col-md-6">
                 <form class="form" name="userSettingsForm" ng-submit="updateUser(userSettingsForm)" novalidate>
                     <div class="form-group required" ng-if="showSettings" show-errors>
@@ -46,7 +46,7 @@
                 </form>
             </div>
         </tab>
-        <tab heading="Password" ng-if="showPasswordSettings" active="tabs['password']" select="setTab('password')">
+        <tab heading="密码" ng-if="showPasswordSettings" active="tabs['password']" select="setTab('password')">
             <div class="col-md-6">
                 <form class="form" name="userPasswordForm" ng-submit="savePassword(userPasswordForm)" novalidate>
                     <div class="form-group required" show-errors>

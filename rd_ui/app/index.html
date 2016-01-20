@@ -83,10 +83,10 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
             <li ng-show="currentUser.hasPermission('admin')">
-                <a href="/data_sources" title="Data Sources"><i class="fa fa-database"></i></a>
+                <a href="/data_sources" title="数据源"><i class="fa fa-database"></i></a>
             </li>
             <li ng-show="currentUser.hasPermission('list_users')">
-                <a href="/users" title="Users"><i class="fa fa-users"></i></a>
+                <a href="/users" title="用户"><i class="fa fa-users"></i></a>
             </li>
             <li class="dropdown" dropdown>
                 <a href="#" class="dropdown-toggle" dropdown-toggle><span ng-bind="currentUser.name"></span> <span class="caret"></span></a>
