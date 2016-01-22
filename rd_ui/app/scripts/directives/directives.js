@@ -13,8 +13,8 @@
       link: function ($scope) {
         var
 
-          unloadMessage = "You will lose your changes if you leave",
-          confirmMessage = unloadMessage + "\n\nAre you sure you want to leave this page?",
+          unloadMessage = "离开此页面将丢失已做修改的内容",
+          confirmMessage = unloadMessage + "\n\n确定要离开此页面吗？",
 
         // store original handler (if any)
           _onbeforeunload = $window.onbeforeunload;

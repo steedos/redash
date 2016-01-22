@@ -91,14 +91,14 @@
       };
 
       User.save(data, function() {
-        growl.addSuccessMessage("Password Saved.")
+        growl.addSuccessMessage("密码已保存！")
         $scope.password = {
           current: '',
           new: '',
           newRepeat: ''
         };
       }, function(error) {
-        var message = error.data.message || "Failed saving password.";
+        var message = error.data.message || "密码保存失败！";
         growl.addErrorMessage(message);
       });
     };
@@ -123,10 +123,10 @@
       }
 
       User.save(data, function(user) {
-        growl.addSuccessMessage("Saved.")
+        growl.addSuccessMessage("已保存！")
         $scope.user = user;
       }, function(error) {
-        var message = error.data.message || "Failed saving.";
+        var message = error.data.message || "保存失败！";
         growl.addErrorMessage(message);
       });
     };
@@ -144,10 +144,10 @@
       }
 
       $scope.user.$save(function(user) {
-        growl.addSuccessMessage("Saved.")
+        growl.addSuccessMessage("已保存！")
         $location.path('/users/' + user.id).replace();
       }, function(error) {
-        var message = error.data.message || "Failed saving.";
+        var message = error.data.message || "保存失败！";
         growl.addErrorMessage(message);
       });
     }

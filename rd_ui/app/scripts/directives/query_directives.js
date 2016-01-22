@@ -233,37 +233,37 @@
                   ng-model="query.schedule"\
                   ng-change="saveQuery()"\
                   ng-options="c.value as c.name for c in refreshOptions">\
-                  <option value="">No Refresh</option>\
+                  <option value="">不刷新</option>\
                   </select>',
       link: function($scope) {
         $scope.refreshOptions = [
             {
                 value: "60",
-                name: 'Every minute'
+                name: '每分钟'
             }
         ];
 
         _.each([5, 10, 15, 30], function(i) {
           $scope.refreshOptions.push({
             value: String(i*60),
-            name: "Every " + i + " minutes"
+            name: "每 " + i + " 分钟"
           })
         });
 
         _.each(_.range(1, 13), function (i) {
             $scope.refreshOptions.push({
                 value: String(i * 3600),
-                name: 'Every ' + i + 'h'
+                name: '每 ' + i + '小时'
             });
         })
 
         $scope.refreshOptions.push({
             value: String(24 * 3600),
-            name: 'Every 24h'
+            name: '每天'
         });
         $scope.refreshOptions.push({
             value: String(7 * 24 * 3600),
-            name: 'Once a week'
+            name: '一周一次'
         });
 
         $scope.$watch('refreshType', function() {

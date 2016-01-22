@@ -72,8 +72,8 @@
       $scope.query.id = null;
       $scope.query.schedule = null;
       $scope.saveQuery({
-        successMessage: 'Query forked',
-        errorMessage: 'Query could not be forked'
+        successMessage: '已拷贝新建！',
+        errorMessage: '此查询无法拷贝新建！'
       }).then(function redirect(savedQuery) {
         // redirect to forked query (clear hash)
         $location.url(savedQuery.getSourceLink()).replace()
@@ -82,7 +82,7 @@
 
     $scope.deleteVisualization = function($e, vis) {
       $e.preventDefault();
-      if (confirm('Are you sure you want to delete ' + vis.name + ' ?')) {
+      if (confirm('确定要删除 ' + vis.name + ' ?')) {
         Events.record(currentUser, 'delete', 'visualization', vis.id);
 
         Visualization.delete(vis, function() {
@@ -95,7 +95,7 @@
               return vis.id !== v.id;
             });
         }, function () {
-          growl.addErrorMessage("Error deleting visualization. Maybe it's used in a dashboard?");
+          growl.addErrorMessage("删除可视化图表错误！ 请确认是否在指示板中使用此图表。");
         });
 
       }

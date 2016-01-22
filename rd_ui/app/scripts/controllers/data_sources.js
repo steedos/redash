@@ -13,11 +13,11 @@
       event.stopPropagation();
       Events.record(currentUser, "delete", "datasource", datasource.id);
       datasource.$delete(function(resource) {
-        growl.addSuccessMessage("Data source deleted succesfully.");
+        growl.addSuccessMessage("数据源删除成功！");
         this.$parent.dataSources = _.without(this.dataSources, resource);
       }.bind(this), function(httpResponse) {
-        console.log("Failed to delete data source: ", httpResponse.status, httpResponse.statusText, httpResponse.data);
-        growl.addErrorMessage("Failed to delete data source.");
+        console.log("数据源删除失败: ", httpResponse.status, httpResponse.statusText, httpResponse.data);
+        growl.addErrorMessage("数据源删除失败！");
       });
     }
   };

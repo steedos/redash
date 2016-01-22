@@ -104,8 +104,8 @@
       }
 
       options = _.extend({}, {
-        successMessage: 'Query saved',
-        errorMessage: 'Query could not be saved'
+        successMessage: '查询保存成功！',
+        errorMessage: '查询保存失败！'
       }, options);
 
       delete data.latest_query_data;
@@ -159,8 +159,8 @@
       $scope.isDirty = false;
 
       options = _.extend({}, {
-        successMessage: 'Query archived',
-        errorMessage: 'Query could not be archived'
+        successMessage: '查询已归档！',
+        errorMessage: '查询归档失败！'
       }, options);
 
       return Query.delete({id: data.id}, function() {

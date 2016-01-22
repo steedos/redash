@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <label>查询</label>
                     <ui-select ng-model="alert.query" reset-search-input="false" on-select="onQuerySelected($item)">
-                        <ui-select-match placeholder="通过名称搜索查询">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-match placeholder="搜索查询">{{$select.selected.name}}</ui-select-match>
                         <ui-select-choices repeat="q in queries"
                                            refresh="searchQueries($select.search)"
                                            refresh-delay="0">

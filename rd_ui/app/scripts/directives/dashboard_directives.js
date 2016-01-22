@@ -128,7 +128,7 @@
             name: '普通',
             value: 1
           }, {
-            name: '两倍',
+            name: '宽',
             value: 2
           }];
 
@@ -215,7 +215,7 @@
               $('#add_query_dialog').modal('hide');
               reset();
             }).catch(function() {
-              growl.addErrorMessage("Widget can not be added");
+              growl.addErrorMessage("无法添加部件！");
             }).finally(function() {
               $scope.saveInProgress = false;
             });

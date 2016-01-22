@@ -72,7 +72,7 @@
       });
     }
 
-    $scope.ops = ['greater than', 'less than', 'equals'];
+    $scope.ops = ['大于', '小于', '等于'];
     $scope.selectedQuery = null;
 
     $scope.getDefaultName = function() {
@@ -100,12 +100,12 @@
         $scope.alert.rearm = null;
       }
       $scope.alert.$save(function(alert) {
-        growl.addSuccessMessage("Saved.");
+        growl.addSuccessMessage("已保存！");
         if ($scope.alertId === "new") {
            $location.path('/alerts/' + alert.id).replace();
         }
       }, function() {
-        growl.addErrorMessage("Failed saving alert.");
+        growl.addErrorMessage("通告保存失败！");
       });
     };
   };
@@ -153,7 +153,7 @@
               $scope.subscription = undefined;
               updateClass();
             }, function() {
-              growl.addErrorMessage("Failed saving subscription.");
+              growl.addErrorMessage("订阅保存失败！");
             });
           } else {
             $scope.subscription = new AlertSubscription({alert_id: $scope.alertId});
@@ -161,7 +161,7 @@
               $scope.subscribers.push($scope.subscription);
               updateClass();
             }, function() {
-              growl.addErrorMessage("Unsubscription failed.");
+              growl.addErrorMessage("取消订阅失败！");
             });
           }
         }

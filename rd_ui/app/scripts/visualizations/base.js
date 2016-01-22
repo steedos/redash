@@ -165,7 +165,7 @@
           scope.visualization.query_id = scope.query.id;
 
           Visualization.save(scope.visualization, function success(result) {
-            growl.addSuccessMessage("Visualization saved");
+            growl.addSuccessMessage("可视化图表已保存！");
 
             scope.visualization = scope.newVisualization(scope.query);
 
@@ -179,7 +179,7 @@
               scope.onNewSuccess && scope.onNewSuccess(result);
             }
           }, function error() {
-            growl.addErrorMessage("Visualization could not be saved");
+            growl.addErrorMessage("可视化图表保存失败！");
           });
         };
       }

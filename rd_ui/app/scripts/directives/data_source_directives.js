@@ -69,9 +69,9 @@
 
         $scope.saveChanges = function() {
           $scope.dataSource.$save(function() {
-            growl.addSuccessMessage("Saved.");
+            growl.addSuccessMessage("已保存！");
           }, function() {
-            growl.addErrorMessage("Failed saving.");
+            growl.addErrorMessage("保存失败！");
           });
         }
       }
