@@ -246,14 +246,14 @@
         _.each([5, 10, 15, 30], function(i) {
           $scope.refreshOptions.push({
             value: String(i*60),
-            name: "每 " + i + " 分钟"
+            name: "每" + i + "分钟"
           })
         });
 
         _.each(_.range(1, 13), function (i) {
             $scope.refreshOptions.push({
                 value: String(i * 3600),
-                name: '每 ' + i + '小时'
+                name: '每' + i + '小时'
             });
         })
 
