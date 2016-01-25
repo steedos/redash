@@ -27,11 +27,11 @@ angular.module('redash.filters', []).
   .filter('scheduleHumanize', function() {
     return function (schedule) {
       if (schedule === null) {
-        return "Never";
+        return "永不";
       } else if (schedule.match(/\d\d:\d\d/) !== null) {
         var parts = schedule.split(':');
         var localTime = moment.utc().hour(parts[0]).minute(parts[1]).local().format('HH:mm');
-        return "Every day at " + localTime;
+        return "每天" + localTime;
       }
 
       return "Every " + durationHumanize(parseInt(schedule));

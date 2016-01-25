@@ -1,7 +1,7 @@
 
 <div class="container">
 
-    <p class="alert alert-warning" ng-if="query.is_archived">This query is archived and can't be used in dashboards, and won't appear in search results.</p>
+    <p class="alert alert-warning" ng-if="query.is_archived">此查询已归档，将不会出现在查询或搜索结果列表中。</p>
     <alert-unsaved-changes ng-if="canEdit" is-dirty="isDirty"></alert-unsaved-changes>
 
     <div class="row">
@@ -125,7 +125,7 @@
                 <span class="glyphicon glyphicon-play"></span>
                 <span class="text-muted">运行时间</span>
                 <strong ng-show="!queryExecuting">{{queryResult.getRuntime() | durationHumanize}}</strong>
-                <span ng-show="queryExecuting">Running&hellip;</span>
+                <span ng-show="queryExecuting">运行&hellip;</span>
             </p>
             <p>
                 <span class="glyphicon glyphicon-align-justify"></span>

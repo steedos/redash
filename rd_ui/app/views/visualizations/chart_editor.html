@@ -4,7 +4,7 @@
     <div class="col-md-6">
       <div class="form-group row">
 
-        <label class="control-label col-sm-5">Chart Type</label>
+        <label class="control-label col-sm-5">图表类型</label>
         <div class="col-sm-7" ng-if="chartTypes"><!--the if is a weird workaround-->
           <ui-select ng-model="options.globalSeriesType" on-select="chartTypeChanged()">
             <ui-select-match placeholder="Choose chart type..."><i class="fa fa-{{$select.selected.value.icon}}"></i> {{$select.selected.value.name}}</ui-select-match>
@@ -20,7 +20,7 @@
     <div class="col-md-6">
       <div class="form-group row">
 
-        <label class="control-label col-sm-5">Stacking</label>
+        <label class="control-label col-sm-5">堆叠</label>
 
         <div class="col-sm-7" ng-if="stackingOptions"><!--the if is a weird workaround-->
           <ui-select ng-model="options.series.stacking" ng-disabled="['line', 'area', 'column'].indexOf(options.globalSeriesType) == -1">
@@ -54,7 +54,7 @@
     <div class="col-md-6">
       <div class="form-group row">
 
-        <label class="control-label col-sm-5">Group by</label>
+        <label class="control-label col-sm-5">分组</label>
 
         <div class="col-sm-7">
 
@@ -92,7 +92,7 @@
     <div class="col-md-6">
       <div class="form-group row">
 
-        <label class="control-label col-sm-5">Legend</label>
+        <label class="control-label col-sm-5">图例</label>
 
         <div class="col-sm-7">
           <input type="checkbox" ng-model="options.legend.enabled">
@@ -195,7 +195,7 @@
 
 <div class="panel panel-default">
 
-  <div class="panel-heading"><h3 class="panel-title">Series Options</h3></div>
+  <div class="panel-heading"><h3 class="panel-title">系列选项</h3></div>
 
   <div>
     <table class="table table-condensed col-table">
