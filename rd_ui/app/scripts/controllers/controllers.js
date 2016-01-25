@@ -80,12 +80,12 @@
         }
 
         if ($scope.selectedTab.key == 'my') {
-          return query.user.id == currentUser.id && query.name != '新查询';
+          return query.user.id == currentUser.id && query.name != 'New Query';
         } else if ($scope.selectedTab.key == 'drafts') {
-          return query.user.id == currentUser.id && query.name == '新查询';
+          return query.user.id == currentUser.id && query.name == 'New Query';
         }
 
-        return query.name != '新查询';
+        return query.name != 'New Query';
       });
     }
 
