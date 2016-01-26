@@ -153,11 +153,11 @@
 
                 <a class="btn btn-warning btn-sm" ng-disabled="queryExecuting" data-toggle="modal" data-target="#archive-confirmation-modal"
                    ng-show="!query.is_archived && query.id != undefined && (isQueryOwner || currentUser.hasPermission('admin'))">
-                    <i class="fa fa-archive" title="Archive Query"></i>
+                    <i class="fa fa-archive" title="查询归档"></i>
                 </a>
 
                 <button class="btn btn-default btn-sm" ng-show="query.id != undefined" ng-click="showApiKey()">
-                    <i class="fa fa-key" title="Show API Key"></i>
+                    <i class="fa fa-key" title="API Key"></i>
                 </button>
 
                 <div class="modal fade" id="archive-confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="archiveConfirmationModal" aria-hidden="true">

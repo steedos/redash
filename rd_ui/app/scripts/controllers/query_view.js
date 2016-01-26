@@ -93,7 +93,7 @@
     };
 
     $scope.showApiKey = function() {
-      alert("API Key for this query:\n" + $scope.query.api_key);
+      alert("此查询的API Key:\n" + $scope.query.api_key);
     };
 
     $scope.saveQuery = function(options, data) {
