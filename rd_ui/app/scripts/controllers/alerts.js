@@ -27,20 +27,20 @@
 
     $scope.gridColumns = [
       {
-        "label": "Name",
+        "label": "名称",
         "map": "name",
         "cellTemplate": '<a href="/alerts/{{dataRow.id}}">{{dataRow.name}}</a> (<a href="/queries/{{dataRow.query.id}}">query</a>)'
       },
       {
-        'label': 'Created By',
+        'label': '创建者',
         'map': 'user.name'
       },
       {
-        'label': 'State',
+        'label': '状态',
         'cellTemplate': '<span ng-class="dataRow.class">{{dataRow.state | uppercase}}</span> since <span am-time-ago="dataRow.updated_at"></span>'
       },
       {
-        'label': 'Created At',
+        'label': '创建日期',
         'cellTemplate': '<span am-time-ago="dataRow.created_at"></span>'
       }
     ];

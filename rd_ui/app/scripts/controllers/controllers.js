@@ -18,21 +18,21 @@
 
     $scope.gridColumns = [
       {
-        "label": "Name",
+        "label": "名称",
         "map": "name",
         "cellTemplateUrl": "/views/queries_query_name_cell.html"
       },
       {
-        'label': 'Created By',
+        'label': '创建者',
         'map': 'user.name'
       },
       {
-        'label': 'Created At',
+        'label': '创建日期',
         'map': 'created_at',
         'formatFunction': dateFormatter
       },
       {
-        'label': 'Update Schedule',
+        'label': '刷新一览表',
         'map': 'schedule',
         'formatFunction': function (value) {
           return $filter('scheduleHumanize')(value);
@@ -101,33 +101,33 @@
 
     $scope.gridColumns = [
       {
-        "label": "Name",
+        "label": "名称",
         "map": "name",
         "cellTemplateUrl": "/views/queries_query_name_cell.html"
       },
       {
-        'label': 'Created By',
+        'label': '创建者',
         'map': 'user.name'
       },
       {
-        'label': 'Created At',
+        'label': '创建日期',
         'map': 'created_at',
         'formatFunction': dateFormatter
       },
       {
-        'label': 'Runtime',
+        'label': '运行时间',
         'map': 'runtime',
         'formatFunction': function (value) {
           return $filter('durationHumanize')(value);
         }
       },
       {
-        'label': 'Last Executed At',
+        'label': '最近执行日期',
         'map': 'retrieved_at',
         'formatFunction': dateFormatter
       },
       {
-        'label': 'Update Schedule',
+        'label': '刷新一览表',
         'map': 'schedule',
         'formatFunction': function (value) {
           return $filter('scheduleHumanize')(value);
