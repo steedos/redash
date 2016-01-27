@@ -16,12 +16,12 @@
         "cellTemplate": '<img src="{{dataRow.gravatar_url}}" height="40px"/>'
       },
       {
-        "label": "Name",
+        "label": "姓名",
         "map": "name",
         "cellTemplate": '<a href="/users/{{dataRow.id}}">{{dataRow.name}}</a>'
       },
       {
-        'label': 'Joined',
+        'label': '添加日期',
         'cellTemplate': '<span am-time-ago="dataRow.created_at"></span>'
       }
     ];

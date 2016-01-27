@@ -97,7 +97,7 @@
     };
 
     $scope.archiveDashboard = function () {
-      if (confirm('Are you sure you want to archive the "' + $scope.dashboard.name + '" dashboard?')) {
+      if (confirm('确定要将"' + $scope.dashboard.name + '" 指示板归档吗？')) {
         Events.record(currentUser, "archive", "dashboard", $scope.dashboard.id);
         $scope.dashboard.$delete(function () {
           $scope.$parent.reloadDashboards();
@@ -128,7 +128,7 @@
 
   var WidgetCtrl = function($scope, $location, Events, Query) {
     $scope.deleteWidget = function() {
-      if (!confirm('Are you sure you want to remove "' + $scope.widget.getName() + '" from the dashboard?')) {
+      if (!confirm('确定要将"' + $scope.widget.getName() + '"从指示板中移除？')) {
         return;
       }
 
