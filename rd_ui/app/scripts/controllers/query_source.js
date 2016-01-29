@@ -95,7 +95,7 @@
               return vis.id !== v.id;
             });
         }, function () {
-          growl.addErrorMessage("删除可视化图表错误！ 请确认是否在指示板中使用此图表。");
+          growl.addErrorMessage("删除可视化图表错误！ 请确认是否在仪表盘中使用此图表。");
         });
 
       }

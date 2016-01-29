@@ -105,7 +105,7 @@
            $location.path('/alerts/' + alert.id).replace();
         }
       }, function() {
-        growl.addErrorMessage("通告保存失败！");
+        growl.addErrorMessage("警报保存失败！");
       });
     };
   };

@@ -97,7 +97,7 @@
     };
 
     $scope.archiveDashboard = function () {
-      if (confirm('确定要将"' + $scope.dashboard.name + '" 指示板归档吗？')) {
+      if (confirm('确定要将"' + $scope.dashboard.name + '" 仪表盘归档吗？')) {
         Events.record(currentUser, "archive", "dashboard", $scope.dashboard.id);
         $scope.dashboard.$delete(function () {
           $scope.$parent.reloadDashboards();
@@ -128,7 +128,7 @@
 
   var WidgetCtrl = function($scope, $location, Events, Query) {
     $scope.deleteWidget = function() {
-      if (!confirm('确定要将"' + $scope.widget.getName() + '"从指示板中移除？')) {
+      if (!confirm('确定要将"' + $scope.widget.getName() + '"从仪表盘中移除？')) {
         return;
       }
 

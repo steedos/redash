@@ -2,14 +2,14 @@
 <edit-dashboard-form dashboard="dashboard" id="edit_dashboard_dialog"></edit-dashboard-form>
 
 <div class="container">
-    <p class="alert alert-warning" ng-if="dashboard.is_archived">此指示板已归档，将不会出现在指示板或搜索结果列表中。</p>
+    <p class="alert alert-warning" ng-if="dashboard.is_archived">此仪表盘已归档，将不会出现在仪表盘或搜索结果列表中。</p>
     <h2 id="dashboard_title">
         {{dashboard.name}}
 
         <span ng-if="!dashboard.is_archived">
             <button type="button" class="btn btn-default btn-xs" ng-class="{active: refreshEnabled}" tooltip="允许/禁止 自动刷新" ng-click="triggerRefresh()"><span class="glyphicon glyphicon-refresh"></span></button>
             <div class="btn-group" role="group" ng-show="dashboard.canEdit()">
-                <button type="button" class="btn btn-default btn-xs" data-toggle="modal" href="#edit_dashboard_dialog" tooltip="编辑指示板 (名称/布局)"><span
+                <button type="button" class="btn btn-default btn-xs" data-toggle="modal" href="#edit_dashboard_dialog" tooltip="编辑仪表盘 (名称/布局)"><span
                         class="glyphicon glyphicon-cog"></span></button>
                 <button type="button" class="btn btn-default btn-xs" data-toggle="modal"
                         href="#add_query_dialog" tooltip="添加部件 (图表/表格)"><span class="glyphicon glyphicon-plus"></span>
