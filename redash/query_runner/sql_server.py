@@ -6,15 +6,18 @@ import sys
 from redash.query_runner import *
 from redash.utils import JSONEncoder
 
+
+logger = logging.getLogger(__name__)
+
 try:
     import pymssql
 
-   
     ENABLED = True
 except ImportError:
     ENABLED = False
+    logging.exception(ImportError.message)
 
-logger = logging.getLogger(__name__)
+
 
 types_map = {
     0: TYPE_FLOAT,
