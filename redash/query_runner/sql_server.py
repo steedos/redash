@@ -140,7 +140,7 @@ class sql_server(BaseSQLQueryRunner):
                                          user=self.configuration.get('user', ''),
                                          password=self.configuration.get('password', ''),
                                          db=self.configuration['db'],
-                                         port=self.configuration.get('port', 1433),
+                                         port=self.configuration.get('port', 1433))
             #connection.outputtypehandler = Oracle.output_handler
             cursor = connection.cursor()
             logger.debug("sql server running query: %s", query)
@@ -148,7 +148,6 @@ class sql_server(BaseSQLQueryRunner):
 
             data = cursor.fetchall()
 
-            # TODO - very similar to pg.py
             if cursor.description is not None:
                 columns = self.fetch_columns([(i[0], types_map.get(i[1], None)) for i in cursor.description])
                 rows = [dict(zip((c['name'] for c in columns), row)) for row in data]
