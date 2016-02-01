@@ -70,6 +70,7 @@ class sql_server(BaseSQLQueryRunner):
             import pymssql
         except ImportError:
             return False
+
         return True
 
     def __init__(self, configuration_json):
@@ -136,31 +137,35 @@ class sql_server(BaseSQLQueryRunner):
     #             return cursor.var(cx_Oracle.STRING, 255, outconverter=Oracle._convert_number, arraysize=cursor.arraysize)
 
     def run_query(self, query):
-        connection = pymssql.connect(host=self.configuration.get('host', ''),
-                                     user=self.configuration.get('user', ''),
-                                     password=self.configuration.get('password', ''),
-                                     db=self.configuration['db'],
-                                     port=self.configuration.get('port', 1433),
-        #connection.outputtypehandler = Oracle.output_handler
-        cursor = connection.cursor()
-        logger.debug("sql server running query: %s", query)
-        cursor.execute(query)
+        import pymssql
 
-        data = cursor.fetchall()
+        connection = None
+        try:
+            connection = pymssql.connect(host=self.configuration.get('host', ''),
+                                         user=self.configuration.get('user', ''),
+                                         password=self.configuration.get('password', ''),
+                                         db=self.configuration['db'],
+                                         port=self.configuration.get('port', 1433),
+            #connection.outputtypehandler = Oracle.output_handler
+            cursor = connection.cursor()
+            logger.debug("sql server running query: %s", query)
+            cursor.execute(query)
 
-        # TODO - very similar to pg.py
-        if cursor.description is not None:
-            columns = self.fetch_columns([(i[0], types_map.get(i[1], None)) for i in cursor.description])
-            rows = [dict(zip((c['name'] for c in columns), row)) for row in data]
+            data = cursor.fetchall()
 
-            data = {'columns': columns, 'rows': rows}
-            json_data = json.dumps(data, cls=JSONEncoder)
-            error = None
-        else:
-            json_data = None
-            error = "No data was returned."
+            # TODO - very similar to pg.py
+            if cursor.description is not None:
+                columns = self.fetch_columns([(i[0], types_map.get(i[1], None)) for i in cursor.description])
+                rows = [dict(zip((c['name'] for c in columns), row)) for row in data]
 
-        cursor.close()
+                data = {'columns': columns, 'rows': rows}
+                json_data = json.dumps(data, cls=JSONEncoder)
+                error = None
+            else:
+                json_data = None
+                error = "No data was returned."
+
+            cursor.close()
         except sql_server.DatabaseError as err:
             logging.exception(err.message)
             error = "Query failed. {}.".format(err.message)
