@@ -39,7 +39,16 @@ You can try out the demo instance: http://demo.redash.io/ (login with any Google
 * [Setting up re:dash instance](http://redash.io/deployment/setup.html) (includes links to ready made AWS/GCE images).
 * [Documentation](http://docs.redash.io).
 
-
+前台服务启动：
+```bash
+cd rd_ui  
+sudo bower install --allow-root / bower install
+```
+sql_server配置(Ubuntu 下安装pymssql):
+```bash
+sudo apt-get install freetds-dev
+pip install pymssql
+```
 ## Getting help
 
 * [Google Group (mailing list)](https://groups.google.com/forum/#!forum/redash-users): the best place to get updates about new releases or ask general questions.
