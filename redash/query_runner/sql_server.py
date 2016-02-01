@@ -6,13 +6,13 @@ import sys
 from redash.query_runner import *
 from redash.utils import JSONEncoder
 
-# try:
-#     import pymssql
+try:
+    import pymssql
 
    
-#     ENABLED = True
-# except ImportError:
-#     ENABLED = False
+    ENABLED = True
+except ImportError:
+    ENABLED = False
 
 logger = logging.getLogger(__name__)
 
@@ -65,13 +65,8 @@ class sql_server(BaseSQLQueryRunner):
         }
 
     @classmethod
-    def enabled(cls):
-        try:
-            import pymssql
-        except ImportError:
-            return False
-
-        return True
+    def type(cls):
+        return "sql server"
 
     def __init__(self, configuration_json):
         super(sql_server, self).__init__(configuration_json)
