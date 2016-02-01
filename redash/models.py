@@ -649,11 +649,11 @@ class Alert(ModelTimestampsMixin, BaseModel):
         value = data['rows'][0][self.options['column']]
         op = self.options['op']
 
-        if op == '大于' and value > self.options['value']:
+        if op == 'greater than' and value > self.options['value']:
             new_state = self.TRIGGERED_STATE
-        elif op == '小于' and value < self.options['value']:
+        elif op == 'less than' and value < self.options['value']:
             new_state = self.TRIGGERED_STATE
-        elif op == '等于' and value == self.options['value']:
+        elif op == 'equals' and value == self.options['value']:
             new_state = self.TRIGGERED_STATE
         else:
             new_state = self.OK_STATE

@@ -72,7 +72,7 @@
       });
     }
 
-    $scope.ops = ['大于', '小于', '等于'];
+    $scope.ops = ['greater than', 'less than', 'equals'];
     $scope.selectedQuery = null;
 
     $scope.getDefaultName = function() {
