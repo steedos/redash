@@ -89,11 +89,10 @@ class sql_server(BaseSQLQueryRunner):
         'dbo' TABLESPACE_NAME,
         tb.name TABLE_NAME,
         c.name COLUMN_NAME 
-        from sys.columns c,sys.types t, sys.tables tb 
-        where c.system_type_id = t.system_type_id and tb.object_id = c.object_id
+        from sys.columns c,sys.tables tb 
+        where tb.object_id = c.object_id
         """
 
-        print query
         results, error = self.run_query(query)
 
         if error is not None:
