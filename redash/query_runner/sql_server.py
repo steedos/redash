@@ -121,7 +121,7 @@ class sql_server(BaseSQLQueryRunner):
             cursor.execute(query)
 
             data = cursor.fetchall()
-
+            logger.info("---------------------------------if cursor.description is not None----------------------")
             if cursor.description is not None:
                 columns = self.fetch_columns([(i[0], types_map.get(i[1], None)) for i in cursor.description])
                 logger.info("--------------------------start---------------------------------------")
