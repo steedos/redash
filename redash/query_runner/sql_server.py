@@ -111,7 +111,9 @@ class sql_server(BaseSQLQueryRunner):
 
             schema[table_name]['columns'].append(row['COLUMN_NAME'])
 
+        print schema.values()
         return schema.values()
+
 
     # @classmethod
     # def _convert_number(cls, value):
