@@ -55,8 +55,8 @@ class sql_server(BaseSQLQueryRunner):
                     "type": "string"
                 },
                 "port": {
-                    "type": "number"
-                    'default': 1433,
+                    "type": "number",
+                    'default': 1433
                 },
                 "db": {
                     "type": "string",
