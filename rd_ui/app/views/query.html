@@ -84,9 +84,9 @@
             </div>
         </div>
         <div class="col-md-3 schema-container" ng-show="hasSchema">
-            <div ng-show="schema.length < 200">
+            <!-- <div ng-show="schema.length < 200"> -->
                 <input type="text" placeholder="搜索..." class="form-control" ng-model="schemaFilter">
-            </div>
+            <!-- </div> -->
             <div class="schema-browser">
                 <div ng-repeat="table in schema | filter:schemaFilter track by table.name">
                     <div class="table-name" ng-click="table.collapsed = !table.collapsed">
