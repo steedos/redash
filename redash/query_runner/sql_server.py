@@ -135,7 +135,6 @@ class sql_server(BaseSQLQueryRunner):
     #             return cursor.var(cx_Oracle.STRING, 255, outconverter=Oracle._convert_number, arraysize=cursor.arraysize)
 
     def run_query(self, query):
-        import pymssql
 
         connection = None
         try:
@@ -147,6 +146,7 @@ class sql_server(BaseSQLQueryRunner):
             #connection.outputtypehandler = Oracle.output_handler
             cursor = connection.cursor()
             logger.debug("sql server running query: %s", query)
+            print query
             cursor.execute(query)
 
             data = cursor.fetchall()
