@@ -73,14 +73,6 @@ class sql_server(BaseSQLQueryRunner):
 
     def __init__(self, configuration_json):
         super(sql_server, self).__init__(configuration_json)
-
-        # dsn = sql_server.makedsn(
-        #     self.configuration["host"],
-        #     self.configuration["port"],
-        #     database=self.configuration["database"])
-        # self.connection_string = "{}/{}@{}".format(self.configuration["user"], self.configuration["password"], dsn)
-
-        # self.connection_string_obj = {'host':'','user':'','password':'','db':''}
         
 
     def _get_tables(self, schema):
@@ -111,28 +103,8 @@ class sql_server(BaseSQLQueryRunner):
 
             schema[table_name]['columns'].append(row['COLUMN_NAME'])
 
-        print schema.values()
         return schema.values()
 
-
-    # @classmethod
-    # def _convert_number(cls, value):
-    #     try:
-    #         return int(value)
-    #     except:
-    #         return value
-
-    # @classmethod
-    # def output_handler(cls, cursor, name, default_type, length, precision, scale):
-    #     if default_type in (cx_Oracle.CLOB, cx_Oracle.LOB):
-    #         return cursor.var(cx_Oracle.LONG_STRING, 80000, cursor.arraysize)
-
-    #     if default_type in (cx_Oracle.STRING, cx_Oracle.FIXED_CHAR):
-    #         return cursor.var(unicode, length, cursor.arraysize)
-
-    #     if default_type == cx_Oracle.NUMBER:
-    #         if scale <= 0:
-    #             return cursor.var(cx_Oracle.STRING, 255, outconverter=Oracle._convert_number, arraysize=cursor.arraysize)
 
     def run_query(self, query):
 
@@ -143,11 +115,8 @@ class sql_server(BaseSQLQueryRunner):
                                          password=self.configuration.get('password', ''),
                                          database=self.configuration.get('db',''),
                                          port=self.configuration.get('port', 1433))
-            #connection.outputtypehandler = Oracle.output_handler
             cursor = connection.cursor()
             logger.debug("sql server running query: %s", query)
-
-            print query
             
             cursor.execute(query)
 
@@ -164,7 +133,6 @@ class sql_server(BaseSQLQueryRunner):
                 json_data = None
                 error = "No data was returned."
 
-            # cursor.close()
         except pymssql.DatabaseError as err:
             logging.exception(err.message)
             error = "Query failed. {}.".format(err.message)
