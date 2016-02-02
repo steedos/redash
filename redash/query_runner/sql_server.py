@@ -124,7 +124,9 @@ class sql_server(BaseSQLQueryRunner):
 
             if cursor.description is not None:
                 columns = self.fetch_columns([(i[0], types_map.get(i[1], None)) for i in cursor.description])
+                logger.info("--------------------------start---------------------------------------")
                 logger.info(cursor.description)
+                logger.info("---------------------------end-----------------------------------------")
                 rows = [dict(zip((c['name'] for c in columns), row)) for row in data]
 
                 data = {'columns': columns, 'rows': rows}
@@ -134,7 +136,6 @@ class sql_server(BaseSQLQueryRunner):
                 json_data = None
                 error = "No data was returned."
 
-            logger.info(cursor.description)
         except pymssql.DatabaseError as err:
             logging.exception(err.message)
             error = "Query failed. {}.".format(err.message)
