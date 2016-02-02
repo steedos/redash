@@ -142,7 +142,7 @@ class sql_server(BaseSQLQueryRunner):
             connection = pymssql.connect(server=self.configuration.get('host', ''),
                                          user=self.configuration.get('user', ''),
                                          password=self.configuration.get('password', ''),
-                                         database=self.configuration('db',''),
+                                         database=self.configuration.get('db',''),
                                          port=self.configuration.get('port', 1433))
             #connection.outputtypehandler = Oracle.output_handler
             cursor = connection.cursor()
