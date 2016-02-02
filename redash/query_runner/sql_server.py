@@ -86,15 +86,14 @@ class sql_server(BaseSQLQueryRunner):
     def _get_tables(self, schema):
         query = """
         select 
-        'dbo' TABLESPACE_NAME ,
-        c.name TABLE_NAME,
-        t.name COLUMN_NAME
-        type from sys.columns c,sys.types t, sys.tables tb 
+        'dbo' TABLESPACE_NAME,
+        tb.name TABLE_NAME,
+        c.name COLUMN_NAME 
+        from sys.columns c,sys.types t, sys.tables tb 
         where c.system_type_id = t.system_type_id and tb.object_id = c.object_id
-
         """
 
-
+        print query
         results, error = self.run_query(query)
 
         if error is not None:
@@ -146,7 +145,9 @@ class sql_server(BaseSQLQueryRunner):
             #connection.outputtypehandler = Oracle.output_handler
             cursor = connection.cursor()
             logger.debug("sql server running query: %s", query)
+
             print query
+            
             cursor.execute(query)
 
             data = cursor.fetchall()
