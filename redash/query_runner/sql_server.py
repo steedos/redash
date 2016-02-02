@@ -139,10 +139,10 @@ class sql_server(BaseSQLQueryRunner):
 
         connection = None
         try:
-            connection = pymssql.connect(host=self.configuration.get('host', ''),
+            connection = pymssql.connect(server=self.configuration.get('host', ''),
                                          user=self.configuration.get('user', ''),
                                          password=self.configuration.get('password', ''),
-                                         db=self.configuration['db'],
+                                         database=self.configuration('db',''),
                                          port=self.configuration.get('port', 1433))
             #connection.outputtypehandler = Oracle.output_handler
             cursor = connection.cursor()
@@ -162,8 +162,8 @@ class sql_server(BaseSQLQueryRunner):
                 json_data = None
                 error = "No data was returned."
 
-            cursor.close()
-        except sql_server.DatabaseError as err:
+            # cursor.close()
+        except pymssql.DatabaseError as err:
             logging.exception(err.message)
             error = "Query failed. {}.".format(err.message)
             json_data = None
