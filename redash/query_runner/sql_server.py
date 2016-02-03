@@ -120,25 +120,10 @@ class sql_server(BaseSQLQueryRunner):
             
             cursor.execute(query)
 
-            #data = cursor.fetchall()
-            # logger.info("---------------------------------if cursor.description is not None----------------------")
-            # if cursor.description is not None:
-            #     columns = self.fetch_columns([(i[0], types_map.get(i[1], None)) for i in cursor.description])
-            #     logger.info("--------------------------start---------------------------------------")
-            #     logger.info(cursor.description)
-            #     logger.info("---------------------------end-----------------------------------------")
-            #     rows = [dict(zip((c['name'] for c in columns), row)) for row in data]
-
-
-            # https://gist.github.com/arikfr/a001b697351babff376c案例
-            result = cursor.fetchall()
-            columns = []
-            rows = []
-
-            if result:
-                columns = [{'name': column,'type': None} for column in result[0].description()]
-                rows = result
-            #-----------end------------------------
+            data = cursor.fetchall()
+            if cursor.description is not None:
+                columns = self.fetch_columns([(i[0], types_map.get(i[1], None)) for i in cursor.description])
+                rows = [dict(zip((c['name'] for c in columns), row)) for row in data]
                 
                 data = {'columns': columns, 'rows': rows}
                 json_data = json.dumps(data, cls=JSONEncoder)
