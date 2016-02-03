@@ -136,7 +136,7 @@ class sql_server(BaseSQLQueryRunner):
             rows = []
 
             if result:
-                columns = [{'name': column,'type': None} for column in result[0].keys()]
+                columns = [{'name': column,'type': None} for column in result[0].description()]
                 rows = result
             #-----------end------------------------
                 
