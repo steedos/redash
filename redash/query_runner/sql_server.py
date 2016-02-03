@@ -20,14 +20,13 @@ except ImportError:
 
 
 types_map = {
-    0: TYPE_FLOAT,
     20: TYPE_INTEGER,
     21: TYPE_INTEGER,
     23: TYPE_INTEGER,
-    4: TYPE_FLOAT,
-    5: TYPE_FLOAT,
+    700: TYPE_FLOAT,
+    1700: TYPE_FLOAT,
+    701: TYPE_FLOAT,
     16: TYPE_BOOLEAN,
-    246: TYPE_FLOAT,    
     1082: TYPE_DATE,
     1114: TYPE_DATETIME,
     1184: TYPE_DATETIME,
