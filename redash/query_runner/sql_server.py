@@ -23,6 +23,7 @@ types_map = {
     3: TYPE_INTEGER,
     1: TYPE_STRING,
     4: TYPE_DATETIME,
+    5: TYPE_FLOAT,
     20: TYPE_INTEGER,
     21: TYPE_INTEGER,
     23: TYPE_INTEGER,
