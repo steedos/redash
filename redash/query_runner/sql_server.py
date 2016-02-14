@@ -23,6 +23,8 @@ types_map = {
     20: TYPE_INTEGER,
     21: TYPE_INTEGER,
     23: TYPE_INTEGER,
+    56: TYPE_INTEGER,
+    62: TYPE_FLOAT,
     700: TYPE_FLOAT,
     1700: TYPE_FLOAT,
     701: TYPE_FLOAT,
@@ -122,6 +124,9 @@ class sql_server(BaseSQLQueryRunner):
             data = cursor.fetchall()
             if cursor.description is not None:
                 columns = self.fetch_columns([(i[0], types_map.get(i[1], None)) for i in cursor.description])
+                logger.error("-------------cursor.description-------------")
+                logger.error(i) for i in cursor.description
+                logger.error("---------------end-------------")
                 rows = [dict(zip((c['name'] for c in columns), row)) for row in data]
                 
                 data = {'columns': columns, 'rows': rows}
