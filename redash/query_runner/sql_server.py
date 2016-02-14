@@ -125,7 +125,7 @@ class sql_server(BaseSQLQueryRunner):
             if cursor.description is not None:
                 columns = self.fetch_columns([(i[0], types_map.get(i[1], None)) for i in cursor.description])
                 logger.error("-------------cursor.description-------------")
-                (logger.error(i)) for i in cursor.description
+                logger.error(cursor.description)
                 logger.error("---------------end-------------")
                 rows = [dict(zip((c['name'] for c in columns), row)) for row in data]
                 
