@@ -151,7 +151,8 @@ class sql_server(BaseSQLQueryRunner):
         except Exception as err:
             raise sys.exc_info()[1], None, sys.exc_info()[2]
         finally:
-            connection.close()
+            if connection:
+                connection.close()
 
         return json_data, error
 
