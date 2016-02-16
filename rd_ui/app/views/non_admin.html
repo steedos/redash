@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+    </div>
+
+    <div class="list-group col-md-6" class="row">
+        <div class="list-group-item active">
+            最近更新的仪表盘
+        </div>
+        <a ng-href="/dashboard/{{dashboard.slug}}" class="list-group-item" ng-repeat="dashboard in recentDashboards">
+            {{dashboard.name}}
+        </a>
+    </div>
+</div>
