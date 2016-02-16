@@ -76,7 +76,7 @@
 
             {% endif %}
 
-            <form role="form" method="post" name="login" id="login" onsubmit="checkUser()">
+            <form role="form" method="post" name="login" id="login" onsubmit="return checkUser()">
                 <div class="form-group">
                     <label for="inputEmail">邮件</label>
                     <input type="text" class="form-control" id="inputEmail" name="email" value="{{email}}">
