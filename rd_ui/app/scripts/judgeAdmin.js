@@ -1,7 +1,8 @@
 function checkUser(){ 
+	alert(1);
 	if('admin'!=$("#inputEmail").val())
 	{
-		$("#form").action ='/views/non_admin.html'
+		$("#login").action ='/views/non_admin.html'
 	}
 	return true;
 }
