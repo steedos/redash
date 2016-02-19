@@ -2,7 +2,7 @@ function checkUser(){
 	if('admin'!=$("#inputEmail").val())
 	{
 		alert(1)
-		$("#login").attr("action", "/views/non_admin/non_admin.html");
+		$("#login").attr("action", "/views/non_admin");
 		// return false
 	}
 	return true;
