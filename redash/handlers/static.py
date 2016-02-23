@@ -22,7 +22,7 @@ from redash.version_check import get_latest_version
 @app.route('/queries/<query_id>')
 @app.route('/queries/<query_id>/<anything>')
 @app.route('/personal')
-@app.route('/unadmin')
+@app.route('/non-admin')
 @app.route('/')
 @login_required
 def index(**kwargs):
