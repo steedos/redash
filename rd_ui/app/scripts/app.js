@@ -119,10 +119,10 @@ angular.module('redash', [
         controller: 'UsersCtrl'
       });
 
-      $routeProvider.when('/non-admin', {
-        templateUrl: '/views/users/non-administrators.html',
-        controller: 'PersonalIndexCtrl'
-      });
+      // $routeProvider.when('/non-admin', {
+      //   templateUrl: '/views/users/non-administrators.html',
+      //   controller: 'PersonalIndexCtrl'
+      // });
       $routeProvider.when('/', {
         templateUrl: '/views/personal.html',
         controller: 'PersonalIndexCtrl'
