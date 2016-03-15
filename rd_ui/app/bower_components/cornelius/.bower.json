@@ -1,0 +1,13 @@
+{
+  "name": "cornelius",
+  "homepage": "https://github.com/restorando/cornelius",
+  "_release": "24d9358111",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "24d935811186c165c8ba63244ff363da71f32dcf"
+  },
+  "_source": "https://github.com/restorando/cornelius.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/restorando/cornelius.git"
+}
