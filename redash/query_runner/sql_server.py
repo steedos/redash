@@ -98,8 +98,6 @@ class sql_server(BaseSQLQueryRunner):
 
     def run_query(self, query):
 
-        reload(sys)  
-        sys.setdefaultencoding('utf8') 
         connection = None
         try:
             connection = pymssql.connect(server=self.configuration.get('host', ''),
