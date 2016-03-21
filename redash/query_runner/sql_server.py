@@ -1,3 +1,4 @@
+#coding=utf8
 import json
 import logging
 import sys
@@ -103,7 +104,9 @@ class sql_server(BaseSQLQueryRunner):
                                          user=self.configuration.get('user', ''),
                                          password=self.configuration.get('password', ''),
                                          database=self.configuration.get('db',''),
-                                         port=self.configuration.get('port', 1433))
+                                         port=self.configuration.get('port', 1433),
+                                         charset='utf8'
+                                         )
             cursor = connection.cursor()
             logger.debug("sql server running query: %s", query)
             
