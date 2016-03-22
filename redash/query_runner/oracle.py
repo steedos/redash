@@ -86,7 +86,8 @@ class Oracle(BaseSQLQueryRunner):
             self.configuration["port"],
             service_name=self.configuration["servicename"])
 
-        self.connection_string = "{}/{}@{}".format(self.configuration["user"], self.configuration["password"], dsn)
+        self.DSN = dsn
+        #self.connection_string = "{}/{}@{}".format(self.configuration["user"], self.configuration["password"], dsn)
 
     def _get_tables(self, schema):
         query = """
@@ -138,7 +139,8 @@ class Oracle(BaseSQLQueryRunner):
                 return cursor.var(cx_Oracle.STRING, 255, outconverter=Oracle._convert_number, arraysize=cursor.arraysize)
 
     def run_query(self, query):
-        connection = cx_Oracle.connect(self.connection_string)
+        #connection = cx_Oracle.connect(self.connection_string)
+        connection = cx_Oracle.connect(self.configuration["user"], self.configuration["password"],self.DSN)
         connection.outputtypehandler = Oracle.output_handler
 
         cursor = connection.cursor()
