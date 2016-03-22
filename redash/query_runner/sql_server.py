@@ -121,6 +121,7 @@ class sql_server(BaseSQLQueryRunner):
                 json_data = None
                 error = "No data was returned."
 
+            cursor.close()
         except pymssql.DatabaseError as err:
             logging.exception(err.message)
             error = "Query failed. {}.".format(err.message)
