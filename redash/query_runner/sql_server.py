@@ -21,7 +21,7 @@ except ImportError:
 types_map = {   
     1: TYPE_STRING,
     2: TYPE_BOOLEAN,
-    3: TYPE_INTEGER,
+    3: TYPE_FLOAT,
     4: TYPE_DATETIME,
     5: TYPE_FLOAT
     
