@@ -31,7 +31,7 @@
                     <h3 class="panel-title">
                         <p>
                             <span ng-hide="currentUser.hasPermission('view_query')">{{query.name}}</span>
-                            <query query="query" visualization="widget.visualization"></query>
+                            <query-link query="query" visualization="widget.visualization" ng-show="currentUser.hasPermission('admin')"></query-link>
                             <visualization-name visualization="widget.visualization"/>
                         </p>
                         <div class="text-muted" ng-bind-html="query.description | markdown"></div>
