@@ -489,3 +489,16 @@ div.table-name {
 .embed-code i  {
     cursor: pointer;
 }
+
+.smart-table-header-row {
+    background-color: #428bca;
+    color: white;
+}
+
+.smart-table-header-cell {
+    font-size: 14px;
+}
+
+.smart-table-data-cell {
+    font-size: 14px;
+}
