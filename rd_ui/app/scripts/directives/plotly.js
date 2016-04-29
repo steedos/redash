@@ -162,7 +162,7 @@
                 var yPosition = Math.floor(index / cellsInRow) * cellHeight;
                 var plotlySeries = {values: [], labels: [], type: 'pie', hole: .4,
                                     marker: {colors: ColorPaletteArray},
-                                    text: series.name, textposition: 'inside', name: series.name,
+                                    text: series.name, textposition: 'outside', name: series.name,
                                     domain: {x: [xPosition, xPosition + cellWidth - xPadding],
                                              y: [yPosition, yPosition + cellHeight - yPadding]}};
                 _.each(series.data, function(row, index) {
@@ -210,6 +210,23 @@
 
             scope.layout.xaxis = {title: getTitle(scope.options.xAxis),
                                   type: getScaleType(scope.options.xAxis.type)};
+            if (scope.options.xAxis.type == "datetime"){
+              scope.layout.xaxis.rangeselector = {
+    		buttons: [{
+        		step: 'day',
+        		stepmode: 'backward',
+       			count: 7,
+        		label: '1周'
+    		},{
+                        step: 'day',
+                        stepmode: 'backward',
+                        count: 14,
+                        label: '2周'
+                }, {step: "all", label: "全部"}]
+	      };
+              //scope.layout.xaxis.rangeslider= {};
+            }
+
             if (angular.isDefined(scope.options.xAxis.labels)) {
               scope.layout.xaxis.showticklabels = scope.options.xAxis.labels.enabled;
             }
