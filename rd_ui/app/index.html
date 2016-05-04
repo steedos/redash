@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="/bower_components/codemirror/addon/hint/show-hint.css">
     <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="/bower_components/AdminLTE/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="/styles/redash.css">
     <!-- endbuild -->
 
@@ -51,7 +52,7 @@
     {% raw %}
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
-            <li class="dropdown" ng-show="groupedDashboards.length > 0 || otherDashboards.length > 0 || currentUser.hasPermission('admin')" dropdown>
+            <li class="dropdown" ng-show="currentUser.hasPermission('admin')" dropdown>
                 <a href="#" class="dropdown-toggle" dropdown-toggle><span class="fa fa-tachometer"></span><b class="caret"></b></a>
                 <ul class="dropdown-menu" dropdown-menu>
                     <span ng-repeat="(name, group) in groupedDashboards">
@@ -95,10 +96,10 @@
             <li ng-show="currentUser.hasPermission('admin')">
                 <a href="/users" title="用户"><i class="fa fa-users"></i></a>
             </li>
-            <li class="dropdown" dropdown>
+            <li class="dropdown" dropdown ng-show="currentUser.hasPermission('admin')">
                 <a href="#" class="dropdown-toggle" dropdown-toggle><span ng-bind="currentUser.name"></span> <span class="caret"></span></a>
                 <ul class="dropdown-menu" dropdown-menu>
-                    <li style="width:300px">
+                    <li style="width:300px" ng-show="currentUser.hasPermission('admin')">
                         <a ng-href="/users/{{currentUser.id}}">
                             <div class="row">
                                 <div class="col-sm-2">
@@ -112,12 +113,16 @@
                             </div>
                         </a>
                     </li>
-                    <li class="divider">
+                    <li class="divider" ng-show="currentUser.hasPermission('admin')">
                     </li>
                     <li>
                         <a href="/logout" target="_self">注销</a>
                     </li>
                 </ul>
+            </li>
+
+            <li ng-show="!currentUser.hasPermission('admin')" >
+                <a href="/logout" target="_self">注销</a>
             </li>
         </ul>
     </div>

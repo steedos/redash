@@ -47,7 +47,9 @@ angular.module('redash', [
         reloadOnSearch: false
       });
       $routeProvider.otherwise({
-        redirectTo: '/embed'
+      //  redirectTo: '/embed',
+        templateUrl: '/views/visualization-embed.html',
+        controller: 'EmbedCtrl',
       });
 
 
