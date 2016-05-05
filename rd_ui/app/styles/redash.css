@@ -504,9 +504,9 @@ div.table-name {
 }
 
 
-*:not(input):not(textarea),
-*:not(input):not(textarea):before,
-*:not(input):not(textarea):after {
+x:not(input):not(textarea):not(svg),
+x:not(input):not(textarea):before,
+x:not(input):not(textarea):after {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
