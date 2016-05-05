@@ -496,9 +496,33 @@ div.table-name {
 }
 
 .smart-table-header-cell {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .smart-table-data-cell {
-    font-size: 16px;
+    font-size: 20px;
 }
+
+
+*:not(input):not(textarea),
+*:not(input):not(textarea):before,
+*:not(input):not(textarea):after {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.panel-title {
+    font-size: 24px;
+}
+
+.panel-title p {
+    margin: 0px;
+}
+
+.navbar.navbar-inverse {
+    background-color: #008d4c;
+    border-color: #008d4c;
+}
+

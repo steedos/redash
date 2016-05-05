@@ -7,7 +7,7 @@
         </p>
     </div>
 
-    <div class="row">
+    <div class="row" ng-show="currentUser.hasPermission('admin')" >
         <div class="list-group col-md-6" style="padding-left: 15px">
             <div class="list-group-item active">
                 最近更新的仪表盘
@@ -31,4 +31,37 @@
             <a href="/admin/status" class="list-group-item">状态信息</a>
         </div>
     </div>
+
+
+    <!-- 普通用户 -->
+<style>
+@media (max-width: 767px) {
+  .small-box {
+    text-align: left;
+  }
+  .small-box .icon {
+    display: block;
+  }
+  .small-box p {
+    font-size: 12px;
+  }
+}
+</style>
+    <div class="row" ng-show="!currentUser.hasPermission('admin')">
+        <div class="col-lg-3 col-xs-12" ng-repeat="dashboard in recentDashboards">
+            <a href="/dashboard/{{dashboard.slug}}" class="small-box-footer">
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>{{dashboard.name}}</h3>
+
+                  <p>&nbsp;</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-bar-chart"></i>
+                </div>
+                <span class="small-box-footer">点击查看 <i class="fa fa-arrow-circle-right"></i></span>
+              </div>
+            </a>
+        </div>
+      </div>
 </div>
