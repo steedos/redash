@@ -48,7 +48,7 @@
 }
 </style>
     <div class="row" ng-show="!currentUser.hasPermission('admin')">
-        <div class="col-lg-3 col-xs-12" ng-repeat="dashboard in recentDashboards">
+        <div class="col-lg-3 col-xs-6" ng-repeat="dashboard in recentDashboards">
             <a href="/dashboard/{{dashboard.slug}}" class="small-box-footer">
               <div class="small-box bg-yellow">
                 <div class="inner">
