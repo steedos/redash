@@ -162,8 +162,7 @@
                 var yPosition = Math.floor(index / cellsInRow) * cellHeight;
                 var plotlySeries = {values: [], labels: [], type: 'pie', hole: .4,
                                     marker: {colors: ColorPaletteArray},
-                                    text: series.name, textposition: 'outside', name: series.name,
-                                    rotation: 135,
+                                    text: series.name, textposition: 'outside', name: series.name,rotation: 180,
                                     domain: {x: [xPosition, xPosition + cellWidth - xPadding],
                                              y: [yPosition, yPosition + cellHeight - yPadding]}};
                 _.each(series.data, function(row, index) {
@@ -235,9 +234,11 @@
               //scope.layout.xaxis.rangeslider= {};
             }
 
+
             if (angular.isDefined(scope.options.xAxis.labels)) {
               scope.layout.xaxis.showticklabels = scope.options.xAxis.labels.enabled;
             }
+
             if (angular.isArray(scope.options.yAxis)) {
               scope.layout.yaxis = {title: getTitle(scope.options.yAxis[0]),
                                     type: getScaleType(scope.options.yAxis[0].type)};
@@ -249,6 +250,10 @@
                                      side: 'right'};
             } else {
               delete scope.layout.yaxis2;
+            }
+ 	    if (scope.options.globalSeriesType == 'line') {
+                // scope.layout.yaxis.range = [ 0, 120]
+		// ,scope.layout.yaxis.autorange = true
             }
             if (scope.options.series.stacking == 'normal') {
               scope.layout.barmode = 'stack';
