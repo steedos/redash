@@ -163,6 +163,7 @@
                 var plotlySeries = {values: [], labels: [], type: 'pie', hole: .4,
                                     marker: {colors: ColorPaletteArray},
                                     text: series.name, textposition: 'outside', name: series.name,
+                                    rotation: 135,
                                     domain: {x: [xPosition, xPosition + cellWidth - xPadding],
                                              y: [yPosition, yPosition + cellHeight - yPadding]}};
                 _.each(series.data, function(row, index) {
