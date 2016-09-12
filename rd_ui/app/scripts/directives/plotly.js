@@ -232,6 +232,7 @@
                 }]
               };
               //scope.layout.xaxis.rangeslider= {};
+		scope.layout.xaxis.tickformat='%m-%d';
             }
 
 
